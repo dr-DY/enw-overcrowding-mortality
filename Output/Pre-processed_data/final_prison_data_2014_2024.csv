@@ -1,0 +1,130 @@
+Prison_name,start_period,end_period,A,B,C,D,YOI,Closed,Male,Female,Mixed,Notes
+Altcourse,10-2014,09-2024,0,1,0,0,1,0,1,0,0,Operated by G4S; houses adults and young offenders
+Ashfield,10-2014,09-2024,0,0,1,0,0,0,1,0,0,Operated by Serco; specializes in adult sex offenders
+Askham Grange,10-2014,09-2024,0,0,0,0,0,0,0,1,0,Open prison for adults and young offenders
+Aylesbury,10-2014,09-2024,0,0,0,0,1,0,1,0,0,Young Offender Institution
+Bedford,10-2014,09-2024,0,1,0,0,0,0,1,0,0,Houses adults and young offenders
+Belmarsh,10-2014,09-2024,1,0,0,0,0,0,1,0,0,High-security prison; houses high-profile inmates
+Berwyn,02-2017,09-2024,0,0,1,0,0,0,1,0,0,"Category C prison. Opened in 02-2017, largest prison in the UK"
+Birmingham,10-2014,09-2024,0,1,0,0,0,0,1,0,0,Previously known as Winson Green; Changed from private to public in 07-2019
+Blantyre House,10-2014,03-2015,0,0,1,0,0,0,1,0,0,Resettlement prison; Temporarily closed in 03-2015
+Brinsford,10-2014,09-2024,0,0,0,0,1,0,1,0,0,Young Offender Institution
+Bristol,10-2014,09-2024,0,1,0,0,0,0,1,0,0,Houses adults and young offenders
+Brixton,10-2014,09-2024,0,0,1,0,0,0,1,0,0,Functions as a training establishment
+Bronzefield,10-2014,09-2024,0,0,1,0,0,1,0,1,0,Operated by Sodexo Justice Services; closed women's prison - houses adults and young offenders
+Buckley Hall,10-2014,09-2024,0,0,1,0,0,0,1,0,0,Category C training prison
+Bullingdon,10-2014,09-2024,0,1,0,0,0,0,1,0,0,Category B local prison with some C prisoners
+Bure,10-2014,09-2024,0,0,1,0,0,0,1,0,0,Specializes in sex offenders
+Cardiff,10-2014,09-2024,0,1,0,0,0,0,1,0,0,Category B local prison
+Channings Wood,10-2014,09-2024,0,0,1,0,0,0,1,0,0,Offers Sex Offender Treatment Programme (SOTP)
+Chelmsford,10-2014,09-2024,0,1,0,0,1,0,1,0,0,Houses adults and young offenders
+Coldingley,10-2014,09-2024,0,0,1,0,0,0,1,0,0,Functions as a training prison
+Cookham Wood,10-2014,09-2024,0,0,0,0,1,0,1,0,0,Young Offender Institution for juveniles (15-18)
+Dartmoor,10-2014,09-2024,0,0,1,0,0,0,1,0,0,Functions as a training prison
+Deerbolt,10-2014,09-2024,0,0,0,0,1,0,1,0,0,Young Offender Institution
+Doncaster,10-2014,09-2024,0,1,0,0,1,0,1,0,0,"Operated by Serco; houses adults, young offenders, and sex offenders"
+Dovegate,10-2014,09-2024,0,1,0,0,0,0,1,0,0,Operated by Serco; functions as a training prison
+Dover,10-2014,10-2015,0,0,1,0,0,0,1,0,0,Historically Cat C (later closed / IRC); Decommissioned places for detainees. Temporarily closed pending re-role in 10-2015
+Downview,05-2016,09-2024,0,0,1,0,0,1,0,1,0,Reopened as a female prison in 05-2016
+Downview,10-2014,05-2016,0,0,1,0,0,1,0,1,0,Closed women's prison (reopened in 2016)
+Drake Hall,10-2014,09-2024,0,0,1,0,0,1,0,1,0,Closed women's prison; specializes in foreign nationals
+Durham,10-2014,09-2024,0,1,0,0,1,0,1,0,0,Houses adults and young offenders on remand
+East Sutton Park,10-2014,09-2024,0,0,0,0,0,0,0,1,0,Open women's prison
+Eastwood Park,10-2014,09-2024,0,0,1,0,0,1,0,1,0,Closed women's prison
+Elmley (Sheppey),10-2014,09-2024,0,1,0,0,0,0,1,0,0,Category B local prison
+Erlestoke,10-2014,09-2024,0,0,1,0,0,0,1,0,0,Category C training prison
+Exeter,10-2014,09-2024,0,1,0,0,1,0,1,0,0,Houses adults and young offenders
+Featherstone,10-2014,09-2024,0,0,1,0,0,0,1,0,0,Functions as a training establishment
+Feltham,10-2014,09-2024,0,0,0,0,1,0,1,0,0,Young Offender Institution
+Five Wells,03-2022,09-2024,0,0,1,0,0,0,1,0,0,Category C prison operated by G4S. Opened in 03-2022
+Ford,10-2014,09-2024,0,0,0,1,0,0,1,0,0,Category D open prison
+Forest Bank,10-2014,09-2024,0,1,0,0,1,0,1,0,0,Operated by Sodexo Justice Services; houses adults and young offenders
+Fosse Way,05-2023,09-2024,0,0,1,0,0,0,1,0,0,Category C prison operated by Serco. Opened in 05-2023
+Foston Hall,10-2014,09-2024,0,0,1,0,0,1,0,1,0,Closed women's prison; houses adults and young offenders
+Frankland,10-2014,09-2024,1,0,0,0,0,0,1,0,0,High-security prison; houses Category A High Risk and Category B adult males
+Full Sutton,10-2014,09-2024,1,0,0,0,0,0,1,0,0,High-security prison; houses Category A prisoners
+Garth,10-2014,09-2024,0,1,0,0,0,0,1,0,0,Category B training establishment
+Gartree,10-2014,09-2024,0,1,0,0,0,0,1,0,0,Category B training prison
+Glen Parva,10-2014,06-2017,0,0,0,0,1,0,1,0,0,Young Offender Institution (18-21); Closed in 06-2017
+Grendon / Springhill,10-2014,09-2024,0,1,0,1,0,0,1,0,0,"Grendon is Cat B therapeutic community, Springhill is Cat D open"
+Guys Marsh,10-2014,09-2024,0,0,1,0,0,0,1,0,0,Category C training prison
+Haslar,10-2014,04-2015,1,0,0,0,0,0,1,0,0,Former Immigration Removal Centre; Decommissioned places for detainees. Temporarily closed pending re-role in 04-2015
+Hatfield,02-2015,09-2024,0,0,0,1,0,0,1,0,0,Category D open prison (part of Moorland/Hatfield)
+Haverigg,10-2014,09-2024,0,0,1,0,0,0,1,0,0,Category C training prison
+Hewell,10-2014,09-2024,0,1,0,0,0,0,1,0,0,Primarily Category B local (open site closed in 2020)
+High Down,10-2014,09-2024,0,1,0,0,0,0,1,0,0,Category B local prison
+Highpoint (North and South),10-2014,09-2024,0,0,1,0,0,0,1,0,0,Category C training prison
+Hindley,10-2014,09-2024,0,0,1,0,1,0,1,0,0,"Former YOI, now Cat C adult men but still holds some young offenders"
+Hollesley Bay,10-2014,09-2024,0,0,0,1,0,0,1,0,0,Category D open prison
+Holloway,10-2014,06-2016,0,0,1,0,0,1,0,1,0,Closed women's prison (closed in 2016); Closed in 06-2016
+Holme House,05-2017,09-2024,0,0,1,0,0,0,1,0,0,Changed from local (B) to Cat C prison in May 2017; Changed from local to Cat C prison in 05-2017
+Holme House,10-2014,05-2017,0,1,0,0,0,0,1,0,0,Changed from local (B) to Cat C prison in May 2017
+Hull,10-2014,09-2024,0,1,0,0,0,0,1,0,0,Category B local prison
+Humber,10-2014,09-2024,0,0,1,0,0,0,1,0,0,Category C training prison
+Huntercombe,10-2014,09-2024,0,0,1,0,0,0,1,0,0,Category C prison (foreign nationals)
+Isis,10-2014,09-2024,0,0,1,0,1,0,1,0,0,Category C prison with YOI function
+Isle of Wight,10-2014,09-2024,0,1,0,0,0,0,1,0,0,Primarily Category B (combining ex-Parkhurst/Albany)
+Kennet,10-2014,12-2016,0,0,1,0,0,0,1,0,0,Category C prison (closed in 2016); Closed in 12-2016
+Kirkham,10-2014,09-2024,0,0,0,1,0,0,1,0,0,Category D open prison
+Kirklevington Grange,10-2014,09-2024,0,0,0,1,0,0,1,0,0,Category D open resettlement prison
+Lancaster Farms,10-2014,09-2024,0,0,1,0,0,0,1,0,0,Category C prison
+Leeds,10-2014,09-2024,0,1,0,0,0,0,1,0,0,Category B local prison
+Leicester,10-2014,09-2024,0,1,0,0,0,0,1,0,0,Category B local prison
+Lewes,10-2014,09-2024,0,1,0,0,0,0,1,0,0,Category B local prison
+Leyhill,10-2014,09-2024,0,0,0,1,0,0,1,0,0,Category D open prison
+Lincoln,10-2014,09-2024,0,1,0,0,0,0,1,0,0,Category B local prison
+Lindholme,10-2014,09-2024,0,0,1,0,0,0,1,0,0,Category C training prison
+Littlehey,10-2014,09-2024,0,0,1,0,1,0,1,0,0,"Adult side is Cat C, also has YOI side (18-21)"
+Liverpool,10-2014,09-2024,0,1,0,0,0,0,1,0,0,Category B local prison
+Long Lartin,10-2014,09-2024,1,0,0,0,0,0,1,0,0,Category A high security prison
+Low Newton,10-2014,09-2024,0,0,1,0,0,1,0,1,0,Closed women's prison
+Lowdham Grange,10-2014,09-2024,0,1,0,0,0,0,1,0,0,Category B prison (privately operated)
+Maidstone,10-2014,09-2024,0,0,1,0,0,0,1,0,0,Category C prison
+Manchester,10-2014,09-2024,1,0,0,0,0,0,1,0,0,Category A high security prison (Strangeways)
+Moorland,02-2015,09-2024,0,0,1,0,0,0,1,0,0,Category C prison (part of Moorland/Hatfield)
+Moorland / Hatfield,10-2014,01-2015,0,0,1,1,0,0,1,0,0,"Moorland is Cat C, Hatfield is Cat D open"
+Morton Hall,10-2014,09-2024,1,0,0,0,0,0,0,1,0,"Former women's prison, later an IRC"
+Mount,10-2014,09-2024,0,0,1,0,0,0,1,0,0,Category C prison
+New Hall,10-2014,09-2024,0,0,1,0,1,1,0,1,0,"Closed women's prison (for adult women, plus young offenders)"
+North Sea Camp,10-2014,09-2024,0,0,0,1,0,0,1,0,0,Category D open prison
+Northumberland,10-2014,09-2024,0,0,1,0,0,0,1,0,0,Category C training prison
+Norwich,10-2014,09-2024,0,1,0,0,0,0,1,0,0,Category B local prison
+Nottingham,10-2014,09-2024,0,1,0,0,0,0,1,0,0,Category B local prison
+Oakwood,10-2014,09-2024,0,0,1,0,0,0,1,0,0,Category C prison (private)
+Onley,10-2014,09-2024,0,0,1,0,0,0,1,0,0,Category C prison
+Parc,10-2014,09-2024,0,1,0,0,1,0,1,0,0,Category B local/training (private) with YOI unit
+Pentonville,10-2014,09-2024,0,1,0,0,0,0,1,0,0,Category B local prison
+Peterborough (Male & Female),10-2014,09-2024,0,1,0,0,0,0,0,0,1,The only dual-purpose prison in England & Wales
+Portland,10-2014,09-2024,0,0,1,0,1,0,1,0,0,Category C with YOI function for young adults
+Preston,10-2014,09-2024,0,1,0,0,0,0,1,0,0,Category B local prison
+Ranby,10-2014,09-2024,0,0,1,0,0,0,1,0,0,Category C prison
+Risley,10-2014,09-2024,0,0,1,0,0,0,1,0,0,Category C prison
+Rochester,10-2014,09-2024,0,0,1,0,1,0,1,0,0,Category C prison with YOI side (18-21)
+Rye Hill,10-2014,09-2024,0,1,0,0,0,0,1,0,0,"Category B prison (private, mainly for sex offenders)"
+Send,10-2014,09-2024,0,0,1,0,0,1,0,1,0,Closed women's prison
+Stafford,10-2014,09-2024,0,0,1,0,0,0,1,0,0,Category C prison (specializes in sex offenders)
+Standford Hill (Sheppey),10-2014,09-2024,0,0,0,1,0,0,1,0,0,Category D open prison
+Stocken,10-2014,09-2024,0,0,1,0,0,0,1,0,0,Category C prison
+Stoke Heath,10-2014,09-2024,0,0,1,0,0,0,1,0,0,Category C prison
+Styal,10-2014,09-2024,0,0,1,0,0,1,0,1,0,Closed women's prison (with some open units)
+Sudbury,10-2014,09-2024,0,0,0,1,0,0,1,0,0,Category D open prison
+Swaleside (Sheppey),10-2014,09-2024,0,1,0,0,0,0,1,0,0,Category B training prison
+Swansea,10-2014,09-2024,0,1,0,0,0,0,1,0,0,Category B local prison
+Swinfen Hall,10-2014,09-2024,0,0,0,0,1,0,1,0,0,YOI for young adults (18-25)
+Thameside,10-2014,09-2024,0,1,0,0,0,0,1,0,0,Category B local prison (private)
+The Verne,10-2014,12-2017,0,0,1,0,0,0,1,0,0,Category C prison (after reverting from IRC status); Decommissioned places for detainees. Temporarily closed pending re-role in 12-2017
+Thorn Cross,10-2014,09-2024,0,0,0,1,0,0,1,0,0,Category D open prison
+Usk / Prescoed,10-2014,09-2024,0,0,1,1,0,0,1,0,0,"Usk is Cat C, Prescoed is Cat D open"
+Wakefield,10-2014,09-2024,1,0,0,0,0,0,1,0,0,Category A high security prison
+Wandsworth,10-2014,09-2024,0,1,0,0,0,0,1,0,0,Category B local prison
+Warren Hill,10-2014,09-2024,0,0,0,0,1,0,1,0,0,Specialized juvenile/young adult site
+Wayland,10-2014,09-2024,0,0,1,0,0,0,1,0,0,Category C prison
+Wealstun,10-2014,09-2024,0,0,1,0,0,0,1,0,0,Category C prison
+Werrington,10-2014,09-2024,0,0,0,0,1,0,1,0,0,YOI (15-18)
+Wetherby,10-2014,09-2024,0,0,0,0,1,0,1,0,0,YOI (15-18)
+Whatton,10-2014,09-2024,0,0,1,0,0,0,1,0,0,Category C prison (sex offenders)
+Whitemoor,10-2014,09-2024,1,0,0,0,0,0,1,0,0,Category A high security prison
+Winchester,10-2014,09-2024,0,1,0,0,0,0,1,0,0,Category B local prison
+Woodhill,10-2014,09-2024,1,0,0,0,0,0,1,0,0,Category A high security prison
+Wormwood Scrubs,10-2014,09-2024,0,1,0,0,0,0,1,0,0,Category B local prison
+Wymott,10-2014,09-2024,0,0,1,0,0,0,1,0,0,Category C prison
