@@ -1,0 +1,6 @@
+venv/
+.venv/
+.env
+functions/__pychache__/
+functions/__pychache__
+__pychache__/
