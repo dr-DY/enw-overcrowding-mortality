@@ -13,12 +13,34 @@ library(Metrics)
 if (!require(jsonlite)) install.packages("jsonlite")
 library(jsonlite)
 
+library(effects)
+library(MASS)
+
+library(dplyr)
+library(openxlsx)
+library(caret)
+
 # ------------------------------
 # 2. Load Data
 # ------------------------------
 cat("📂 Reading input data...\n")
-df <- read.csv("C:/Users/Denis/Desktop/Prison_capacity/Predictive_modelling/prison_agg_data_2014_2024.csv")
+df <- read.xlsx("Output/For_analysis/prison_agg_2014_2024_weighted_linear_covid.xlsx")
 cat("✅ Data loaded. Rows:", nrow(df), "Cols:", ncol(df), "\n")
+
+
+
+cat("📦 Applying variable transformations...\n")
+
+# Convert average monthly outcomes to annual or whenever is needed
+adjustment_factor              <- 1 # 1 for now adjustment, 12 for annual numbers
+df$Adjusted_Deaths             <- df$Avg_Deaths * adjustment_factor
+df$Adjusted_Homicide           <- df$Avg_Homicide * adjustment_factor
+df$Adjusted_SelfInflicted      <- df$Avg_SelfInflicted * adjustment_factor
+df$Adjusted_Natural            <- df$Avg_Natural * adjustment_factor
+df$Adjusted_Other              <- df$Avg_Other * adjustment_factor
+df$Adjusted_Other_inclHomicide <- df$Adjusted_Other + df$Adjusted_Homicide 
+
+
 
 # Create the Avg_Occupancy_Proportion variable
 df$Avg_Occupancy_Proportion <- df$Avg_Occupancy_Percentage/100
@@ -28,17 +50,16 @@ df$Avg_Op_Capacity_by_InUseCNA <- round(df$Avg_Population/df$Avg_Occupancy_Propo
 
 
 # Create the overcrowding category variables
-df$Overcrowded_medium <- df$Avg_Occupancy_Percentage > 100 & df$Avg_Occupancy_Percentage <= 120
-df$Overcrowded_high <- df$Avg_Occupancy_Percentage > 120
+df$Well_below_capacity <- as.numeric(df$Avg_Occupancy_Percentage < 90)
+df$Close_to_capacity <- as.numeric(df$Avg_Occupancy_Percentage > 90 & df$Avg_Occupancy_Percentage <= 100)
+df$Overcrowded_light <- as.numeric(df$Avg_Occupancy_Percentage > 100 & df$Avg_Occupancy_Percentage <= 110)
+df$Overcrowded_medium <- as.numeric(df$Avg_Occupancy_Percentage > 110 & df$Avg_Occupancy_Percentage <= 120)
+df$Overcrowded_high <- as.numeric(df$Avg_Occupancy_Percentage > 120)
 
 
-# Convert to numeric (0/1) if needed
-df$Overcrowded_medium <- as.numeric(df$Overcrowded_medium)
-df$Overcrowded_high <- as.numeric(df$Overcrowded_high)
-
-# selecting for ruture predictions:
+# selecting for future predictions:
 df_for_predictions <- df %>%
-            select(
+            dplyr::select(
               Prison_name,
               Avg_Population,
               Avg_Occupancy_Percentage,
@@ -50,11 +71,13 @@ df_for_predictions <- df %>%
               Female_open, Female_closed,
               Highest_category_male,
               Highest_category_female,
+              Well_below_capacity,
+              Close_to_capacity,
+              Overcrowded_light,
               Overcrowded_medium,
               Overcrowded_high
               
             )
-
 
 
 
@@ -65,9 +88,11 @@ table(df$Overcrowded_medium, df$Overcrowded_high, useNA = "ifany")
 # 3. Feature Engineering
 # ------------------------------
 # Define all covariates (include the overcrowding variables)
-all_covariates <- c("A", "B", "C", "YOI", "Male", "Female_closed", "Avg_Population", "Overcrowded_medium")
+all_covariates <- c("A", "B", "C", "D", "YOI", "Male", "Female_closed", "Female_open", "Avg_Population", 
+                    "Well_below_capacity", "Close_to_capacity",
+                    "Overcrowded_light", "Overcrowded_medium", "Overcrowded_high")
 
-# Define variables to include in interaction terms - only using medium overcrowding interactions
+# Define variables to include in interaction terms
 interaction_vars <- c("A", "B", "C", "D", "YOI", "Male", "Female_open", "Female_closed")
 
 # Create interaction terms only for selected variables
@@ -77,7 +102,7 @@ main_interaction_term <- 'Avg_Occupancy_Proportion'
 # Check which interactions have sufficient data
 valid_interactions <- c()
 for (var in interaction_vars) {
-  if (sum(df[[main_interaction_term]] >= 1 & df[[var]] >= 1) > 2) {  # At least N cases of both being >=1
+  if (sum(df[[main_interaction_term]] != 0 & df[[var]] >= 1) > 2) {  # At least N cases of both being >=1
     valid_interactions <- c(valid_interactions, var)
     cat("Creating interaction for:", var, "\n")
   } else {
@@ -146,37 +171,34 @@ fit_nb_model <- function(outcome_var) {
   zero_count <- sum(df_model$y == 0)
   cat("📊 Zero values in outcome:", zero_count, "out of", nrow(df_model), "\n")
   
-  weights_vec <- as.numeric(df_model$Avg_Population)
+  # if weighted dataset is used, the weights are not needed
+  #weights_vec <- as.numeric(df_model$Avg_Population)
   
   # Try with tryCatch to handle errors
   tryCatch({
-    set.seed(123)
+    set.seed(42)
     cat("🚦 Running cv.glmregNB with robust settings...\n")
     
-    # Use more stable settings
     cvfit <- cv.glmregNB(
-      formula = y ~ . - Avg_Population,
+      formula = y ~ .,
       data = df_model,
       penalty = "enet",
-      alpha = 0.5,
+      #alpha = 0.9,
+      #alpha = 1, # makes it effectively lasso
+      alpha = 0.5, # makes it enet
       nfolds = 10,
-      weights = weights_vec,
       standardize = TRUE,
-      tol = 1e-4,        # More tolerant convergence
-      maxit = 1000       # More iterations allowed
+      tol = 1e-4,
+      maxit = 1000
     )
     
     lambda_opt <- cvfit$lambda.optim
     cat("📌 Lambda selected (lambda.optim):", lambda_opt, "\n")
     
-    if (is.null(lambda_opt)) {
-      stop(paste("❌ cvfit$lambda.optim is NULL for outcome", outcome_var))
-    }
+    # ✔️ Only print a few values from lambda path for context
+    cat("📊 First few lambdas in sequence: ", paste(head(cvfit$lambda, 5), collapse = ", "), "...\n")
     
-    cat("📊 Lambda sequence:\n")
-    print(cvfit$glmregNB.fit$lambda)
-    
-    # Refit on full data
+    # Proceed with refit
     X <- as.matrix(df_model[, features])
     model_data <- data.frame(y = df_model$y, X)
     
@@ -185,13 +207,14 @@ fit_nb_model <- function(outcome_var) {
       formula = y ~ .,
       data = model_data,
       penalty = "enet",
-      alpha = 0.5,
+      #alpha = 1, # makes it effectively lasso
+      alpha = 0.5, # makes it an elastic net
       lambda = lambda_opt,
-      weights = weights_vec,
       standardize = TRUE,
       tol = 1e-4,
       maxit = 1000
     )
+    
     
     cat("📈 Predicting on full data...\n")
     predicted <- as.vector(predict(fit_nb, newx = as.data.frame(X), type = "response"))
@@ -212,14 +235,10 @@ fit_nb_model <- function(outcome_var) {
     best_aic <- fit_nb$aic[lambda_index]
     
     cat("🔍 Extracting coefficients at selected lambda...\n")
-    coefs <- coef(fit_nb)
-    if (is.matrix(coefs)) {
-      coefs_at_lambda <- coefs[, lambda_index]
-    } else if (is.numeric(coefs)) {
-      cat("⚠️ Only one lambda present — using coefficient vector directly.\n")
-      coefs_at_lambda <- coefs
-    } else {
-      stop("❌ Unexpected format of coefficients.")
+    coefs_at_lambda <- coef(fit_nb)
+    
+    if (!is.numeric(coefs_at_lambda)) {
+      stop("❌ Unexpected format: coefficients are not numeric.")
     }
     
     selected_vars <- names(coefs_at_lambda[which(coefs_at_lambda != 0)])
@@ -275,7 +294,7 @@ fit_nb_model <- function(outcome_var) {
         formula = glm_formula,
         data = df_model,
         family = poisson(link = "log"),
-        weights = weights_vec
+        #weights = weights_vec
       )
       
       # Get predictions
@@ -344,7 +363,9 @@ fit_nb_model <- function(outcome_var) {
 # 6. Run for Each Outcome
 # ------------------------------
 cat("🚀 Running models for all outcomes...\n")
-outcomes <- c("Avg_Deaths", "Avg_SelfInflicted", "Avg_Natural", "Avg_Other")
+#outcomes <- c("Avg_Deaths", "Avg_Homicide", "Avg_SelfInflicted", "Avg_Natural", "Avg_Other")
+outcomes <- c("Adjusted_Deaths", "Adjusted_Homicide", "Adjusted_SelfInflicted", "Adjusted_Natural",
+              "Adjusted_Other", "Adjusted_Other_inclHomicide")
 model_outputs <- lapply(outcomes, fit_nb_model)
 
 # ------------------------------
@@ -365,7 +386,7 @@ format_model_results <- function(results) {
   library(viridis)  # For colorblind-friendly palette
   
   # Create the output directory if it doesn't exist
-  output_dir <- "C:/Users/Denis/Desktop/Prison_capacity/Predictive_modelling/models_output"
+  output_dir <- "Output/Models_output"
   if (!dir.exists(output_dir)) {
     dir.create(output_dir, recursive = TRUE)
   }
@@ -632,3 +653,9 @@ format_model_results <- function(results) {
   cat("✅ All model results and plots saved to:", output_dir, "\n")
 }
 format_model_results(results)
+
+summary(results$Pseudo_R2)
+summary(results$NonZero_Coefficients)
+table(results$Model_Type)
+table(is.na(results$AIC))
+
