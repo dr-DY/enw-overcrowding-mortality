@@ -1,2 +1,6 @@
 # Count every notebook as Python for language stats
 *.ipynb linguist-language=Python
+*.rtf linguist-detectable=false
+*.ods linguist-detectable=false
+*.docx linguist-detectable=false
+*.doc linguist-detectable=false
